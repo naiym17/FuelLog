@@ -5,8 +5,8 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#f3f8f4">
 
-<link rel="apple-touch-icon" sizes="180x180" href="./apple-touch-icon.png">
-<link rel="icon" type="image/png" href="./apple-touch-icon.png">
+<link rel="apple-touch-icon" sizes="180x180" href="https://Naiym17.github.io/FuelLog/apple-touch-icon.png">
+<link rel="icon" type="image/png" href="apple-touch-icon.png">
 <meta name="apple-mobile-web-app-title" content="FuelLog">
 
 <link id="appFavicon" rel="icon" type="image/svg+xml" href="fuellog-logo.png">
@@ -70,11 +70,11 @@ button[type="submit"].btn {
     <header class="topbar">
       <div class="brand"><div class="logo" aria-label="FuelLog logo">
   <img
-    class="logo-image"
-    src="./apple-touch-icon.png"
-    alt="FuelLog"
-    onerror="this.hidden=true;this.nextElementSibling.hidden=false"
-  >
+  class="logo-image"
+  src="https://Naiym17.github.io/FuelLog/apple-touch-icon.png"
+  alt="FuelLog"
+  onerror="this.hidden=true;this.nextElementSibling.hidden=false"
+>
 
   <svg
     class="logo-fallback"
@@ -186,7 +186,13 @@ const localDate=()=>{const d=new Date();return `${d.getFullYear()}-${String(d.ge
 const fmt=(n,d=0)=>Number(n||0).toLocaleString('en-GB',{minimumFractionDigits:d,maximumFractionDigits:d});
 const round=(n)=>Math.round(n);
 
-const LOGO_CANDIDATES=['fuellog-logo.png','fuellog-logo.jpg','fuellog-logo.jpeg','fuellog-logo.webp','fuellog-logo.svg'];
+const LOGO_CANDIDATES=[
+  'apple-touch-icon.png',
+  'fuellog-logo.jpg',
+  'fuellog-logo.jpeg',
+  'fuellog-logo.webp',
+  'fuellog-logo.svg'
+];
 function configureLogoAssets(){
   document.querySelectorAll('.logo-image').forEach(img=>{
     let index=0;
