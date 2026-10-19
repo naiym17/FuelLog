@@ -39,7 +39,7 @@ button[type="submit"].btn {
 
 
 /* FuelLog enhancements: review, reusable entries, calendar markers and weekly history */
-.view-tabs{display:flex;gap:8px;margin:-8px 0 22px;border-bottom:1px solid var(--line);padding-bottom:10px}
+.view-tabs{display:flex;flex-wrap:wrap;gap:8px;margin:-8px 0 22px;border-bottom:1px solid var(--line);padding-bottom:10px}
 .view-tab{border:1px solid transparent;border-radius:11px;padding:9px 14px;background:transparent;color:var(--muted);font-size:12px;font-weight:750}
 .view-tab.active{background:var(--accent2);color:var(--accent);border-color:var(--accent2)}
 .calendar-wrap{position:relative;z-index:10;flex-wrap:wrap}
@@ -78,7 +78,7 @@ button[type="submit"].btn {
 .icon-action:hover,.icon-action[aria-pressed="true"]{background:var(--tealbg);border-color:var(--teal);color:var(--teal)}
 .profile-button{display:flex;align-items:center;gap:10px;max-width:230px;border:1px solid var(--line);border-radius:14px;background:var(--surface);color:var(--ink);padding:8px 11px;text-align:left;box-shadow:none;min-width:0}
 .profile-button:hover{border-color:var(--teal);background:var(--tealbg)}
-.profile-button .profile-copy{min-width:0}
+.profile-button .profile-copy{min-width:0; align-items: center;}
 .profile-button strong{display:block;font-size:12px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 .profile-button small{display:block;color:var(--muted);font-size:10px;margin-top:2px;white-space:nowrap}
 .stat-clickable{cursor:pointer;transition:transform .15s,border-color .15s,box-shadow .15s}
@@ -113,6 +113,140 @@ button[type="submit"].btn {
 @media(max-width:800px){.nutrition-chart-layout{grid-template-columns:1fr;gap:8px}.nutrition-pie-wrap{min-height:190px}.nutrition-pie{width:220px}.profile-button{max-width:190px}}
 @media(max-width:560px){.profile-button{max-width:none;flex:1}.profile-button .avatar{width:30px;height:30px}.top-actions{flex-wrap:wrap}.panel-header-tools{gap:5px}.icon-action{padding:8px;font-size:11px}.nutrition-chart-layout{padding:12px 16px 18px}.chart-tabs{padding:12px 16px 0}.modal-head{padding:17px 16px}.saved-item{align-items:flex-start}.saved-item-actions{flex-direction:column;align-items:stretch}.saved-item-actions .btn{min-width:54px}}
 
+
+/* About page and logo navigation */
+.brand-about-link{color:inherit;text-decoration:none;border-radius:15px;padding:3px;margin:-3px;transition:background .15s,transform .15s}
+.brand-about-link:hover{background:var(--tealbg)}
+.brand-about-link:focus-visible{outline:3px solid var(--teal);outline-offset:4px}
+.brand-wordmark{display:block}
+.about-view{display:grid;gap:24px;max-width:1320px;margin:0 auto}
+.about-hero{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);align-items:center;gap:22px;overflow:hidden;position:relative;background:linear-gradient(125deg,var(--surface) 0%,var(--tealbg) 100%);border:1px solid var(--line);border-radius:23px;padding:clamp(22px,4vw,42px);box-shadow:var(--shadow)}
+.about-hero-copy{position:relative;z-index:1;max-width:620px}
+.about-hero-copy .eyebrow,.about-section-heading .eyebrow{color:var(--teal)}
+.about-hero-copy h2{font-size:clamp(30px,4vw,43px);line-height:1.07;letter-spacing:-1.7px;margin:0;max-width:610px}
+.about-lead{font-size:15px;line-height:1.7;color:var(--ink);max-width:560px;margin:18px 0 0}
+.about-sublead{font-size:12px;line-height:1.65;color:var(--muted);max-width:520px;margin:10px 0 0}
+.about-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:23px}
+.about-actions .btn{padding:11px 15px}
+.about-highlights{display:flex;flex-wrap:wrap;gap:9px;margin-top:23px}
+.about-highlights span{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:color-mix(in srgb,var(--surface) 84%,transparent);color:var(--muted);border-radius:999px;padding:7px 10px;font-size:10px;font-weight:700}
+.about-highlights b{display:grid;place-items:center;width:20px;height:20px;border-radius:7px;background:var(--accent2);color:var(--accent);font-size:9px}
+.about-hero-art{position:relative;min-width:0;display:grid;place-items:center;padding:8px 0 22px}
+.about-art-orb{position:absolute;border-radius:50%;filter:blur(1px);pointer-events:none}
+.about-orb-one{width:190px;height:190px;right:0;top:0;background:color-mix(in srgb,var(--accent) 17%,transparent)}
+.about-orb-two{width:130px;height:130px;left:5px;bottom:5px;background:color-mix(in srgb,var(--teal) 12%,transparent)}
+.about-dashboard-art{position:relative;z-index:1;display:block;width:100%;max-width:440px;height:auto;filter:drop-shadow(0 18px 22px rgba(24,53,42,.12))}
+.about-art-caption{position:absolute;z-index:2;bottom:0;right:0;display:flex;align-items:center;gap:9px;background:var(--surface);border:1px solid var(--line);border-radius:13px;padding:10px 13px;box-shadow:var(--shadow);max-width:255px}
+.about-art-check{display:grid;place-items:center;flex:none;width:30px;height:30px;border-radius:10px;background:var(--tealbg);color:var(--teal);font-weight:900}
+.about-art-caption b,.about-art-caption small{display:block}.about-art-caption b{font-size:11px}.about-art-caption small{font-size:9px;color:var(--muted);margin-top:3px;line-height:1.4}
+.about-section{display:grid;gap:15px}
+.about-section-heading{max-width:690px}
+.about-section-heading h3{font-size:24px;letter-spacing:-.7px;margin:0;line-height:1.2}
+.about-section-heading>p:last-child{color:var(--muted);font-size:12px;margin:7px 0 0;line-height:1.6}
+.about-steps-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.about-step{display:flex;align-items:flex-start;gap:14px;border:1px solid var(--line);border-radius:17px;background:var(--surface);padding:18px;box-shadow:var(--shadow);min-width:0}
+.about-step-number{display:grid;place-items:center;flex:none;width:38px;height:38px;border-radius:12px;background:var(--accent2);color:var(--accent);font-size:11px;font-weight:850}
+.about-step h4,.about-feature-card h4{font-size:13px;margin:1px 0 6px;letter-spacing:-.15px}
+.about-step p,.about-feature-card p{font-size:11px;line-height:1.65;color:var(--muted);margin:0}
+.about-feature-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.about-feature-card{background:var(--surface);border:1px solid var(--line);border-radius:17px;padding:18px;box-shadow:var(--shadow);min-width:0}
+.about-feature-icon{display:grid;place-items:center;width:39px;height:39px;border-radius:12px;background:var(--tealbg);color:var(--teal);margin-bottom:12px}
+.about-feature-icon svg{width:21px;height:21px;fill:none;stroke:currentColor;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.about-note{display:flex;align-items:flex-start;gap:12px;padding:18px 20px;border:1px solid var(--line);background:var(--surface);border-radius:16px}
+.about-note-icon{display:grid;place-items:center;width:30px;height:30px;flex:none;border-radius:10px;background:var(--tealbg);color:var(--teal);font-weight:850}
+.about-note h3{font-size:13px;margin:0 0 5px}.about-note p{font-size:11px;color:var(--muted);line-height:1.7;margin:0}
+[data-theme="dark"] .about-hero{background:linear-gradient(125deg,var(--surface) 0%,#263b2e 100%)}
+[data-theme="dark"] .about-highlights span{background:var(--surface)}
+@media(max-width:900px){.about-hero{grid-template-columns:1fr}.about-hero-copy{max-width:740px}.about-hero-art{max-width:520px;width:100%;margin:0 auto}.about-feature-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.about-view{gap:20px}.about-hero{padding:22px 17px;gap:10px}.about-hero-copy h2{font-size:31px;letter-spacing:-1px}.about-lead{font-size:13px;margin-top:13px}.about-actions{flex-direction:column}.about-actions .btn{width:100%}.about-highlights{gap:6px}.about-highlights span{padding:6px 8px;font-size:9px}.about-hero-art{padding:0 0 21px}.about-art-caption{right:-2px;max-width:215px;padding:8px 10px}.about-steps-grid,.about-feature-grid{grid-template-columns:1fr}.about-step,.about-feature-card{padding:15px}.about-section-heading h3{font-size:22px}.about-note{padding:15px}}
+
+
+/* Responsive, consistent header controls */
+.topbar{align-items:center}
+.top-actions{display:flex;align-items:stretch;flex-wrap:nowrap;gap:10px;min-width:0;max-width:100%}
+.top-actions>.date-wrap,
+.top-actions>#exportBtn,
+.top-actions>#themeToggle,
+.top-actions>#profileBtn{height:48px;min-height:48px;box-sizing:border-box}
+.top-actions>.date-wrap{display:flex;align-items:center;flex:0 1 232px;min-width:205px;max-width:245px;padding:0 12px;gap:8px;border-radius:12px}
+.top-actions>.date-wrap>span{font-size:11px;white-space:nowrap;flex:none}
+.top-actions .calendar-trigger{height:100%;flex:1 1 auto;min-width:0;display:flex;align-items:center;justify-content:space-between;gap:6px;padding:0 1px;font-size:12px;line-height:1.2}
+#selectedDateLabel{display:block;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.top-actions>#exportBtn{display:inline-flex;align-items:center;justify-content:center;flex:0 0 132px;width:132px;min-width:132px;padding:0 12px;white-space:nowrap;border-radius:12px;font-size:12.5px;line-height:1.2}
+.top-actions>#themeToggle{display:inline-grid;place-items:center;flex:0 0 48px;width:48px;min-width:48px;padding:0;border:1px solid var(--line);border-radius:12px;background:var(--surface);color:var(--muted);font-size:17px;line-height:1;box-shadow:none}
+.top-actions>#profileBtn{display:flex;align-items:center;gap:9px;flex:0 1 210px;width:210px;min-width:170px;max-width:230px;padding:5px 10px;border-radius:12px;text-align:left;overflow:hidden}
+.top-actions>#profileBtn .avatar{width:34px;height:34px;flex:0 0 34px}
+.top-actions>#profileBtn .profile-copy{min-width:0;overflow:hidden}
+.top-actions>#profileBtn .profile-copy strong,
+.top-actions>#profileBtn .profile-copy small{display:block;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.top-actions>.date-wrap:focus-within{border-color:var(--teal);box-shadow:0 0 0 3px color-mix(in srgb,var(--teal) 12%,transparent)}
+.top-actions .calendar-trigger:focus-visible,
+.top-actions>#exportBtn:focus-visible,
+.top-actions>#themeToggle:focus-visible,
+.top-actions>#profileBtn:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+@media(max-width:1100px){
+  .topbar{flex-wrap:wrap;align-items:center}
+  .top-actions{display:grid;width:100%;flex:1 1 100%;grid-template-columns:minmax(205px,1.2fr) minmax(132px,.72fr) 48px minmax(170px,1fr);align-items:stretch;gap:10px}
+  .top-actions>.date-wrap{width:100%;max-width:none;min-width:0}
+  .top-actions>#profileBtn{width:100%;max-width:none;min-width:0}
+}
+@media(max-width:760px){
+  .top-actions{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:8px}
+  .top-actions>.date-wrap{grid-column:1/-1;min-width:0;max-width:none}
+  .top-actions>#exportBtn{grid-column:1;grid-row:2;width:100%;min-width:0;flex:auto}
+  .top-actions>#themeToggle{grid-column:2;grid-row:2;width:100%;min-width:0;flex:auto}
+  .top-actions>#profileBtn{grid-column:1/-1;grid-row:3;width:100%;max-width:none;min-width:0}
+}
+@media(max-width:380px){
+  .top-actions{gap:7px}
+  .top-actions>.date-wrap{padding:0 9px;gap:6px}
+  .top-actions>.date-wrap>span{font-size:10px}
+  .top-actions .calendar-trigger{font-size:11px}
+  .top-actions>#exportBtn{font-size:12px}
+}
+
+
+
+/* My Foods library and compact profile control */
+.profile-button .profile-copy{display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:1px}
+.profile-button strong{font-size:12px;line-height:1.25}
+.profile-button small{font-size:10px;line-height:1.2;margin-top:1px}
+.top-actions>#profileBtn{flex:0 1 172px;width:172px;min-width:135px;max-width:188px;gap:8px;padding:5px 9px}
+.top-actions>#profileBtn .avatar{width:32px;height:32px;flex-basis:32px}
+.my-foods-view{display:grid;gap:18px}
+.my-foods-heading{display:flex;align-items:flex-end;justify-content:space-between;gap:18px;margin:6px 0 2px}
+.my-foods-heading h2{font-size:29px;letter-spacing:-.8px;line-height:1.15;margin:0}
+.my-foods-heading>div>p:last-child{color:var(--muted);font-size:13px;margin:8px 0 0;max-width:720px;line-height:1.6}
+.my-foods-layout{display:grid;grid-template-columns:minmax(300px,365px) minmax(0,1fr);gap:18px;align-items:start}
+.my-food-form-panel,.my-foods-list-panel{min-width:0}
+.my-foods-search{padding:14px 18px 0}
+.my-foods-search input{width:100%;border:1px solid var(--line);border-radius:11px;padding:11px 12px;background:var(--line);color:var(--ink);font:inherit;font-size:12px;outline:none}
+.my-foods-search input:focus{border-color:var(--teal);box-shadow:0 0 0 3px color-mix(in srgb,var(--teal) 12%,transparent)}
+.visually-search-label{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+.my-foods-list{display:grid;gap:9px;padding:14px 18px 18px}
+.my-food-card{display:flex;align-items:center;justify-content:space-between;gap:12px;min-width:0;border:1px solid var(--line);border-radius:14px;background:var(--surface);padding:13px}
+.my-food-card-main{min-width:0;flex:1}
+.my-food-card-main strong{display:block;font-size:12px;overflow-wrap:anywhere}
+.my-food-card-main small{display:block;color:var(--muted);font-size:10px;line-height:1.5;margin-top:4px;overflow-wrap:anywhere}
+.my-food-card-actions{display:flex;gap:6px;align-items:center;flex:none;flex-wrap:wrap;justify-content:flex-end}
+.my-food-card-actions .btn{padding:8px 10px;font-size:11px}
+.my-food-editing-note{font-size:11px;color:var(--teal);margin:0 0 12px}
+[data-theme="dark"] .my-foods-search input{background:var(--surface);border-color:var(--line)}
+@media(max-width:1100px){.top-actions>#profileBtn{min-width:0;width:100%;max-width:none}}
+@media(max-width:900px){.my-foods-layout{grid-template-columns:1fr}.my-food-form-panel{max-width:none}}
+@media(max-width:800px){.my-foods-heading{align-items:flex-start;flex-direction:column}.my-foods-heading h2{font-size:27px}}
+@media(max-width:760px){.top-actions>#profileBtn{grid-column:1/-1;grid-row:3;width:172px;max-width:100%;min-width:135px;justify-self:start}.my-food-card{align-items:flex-start;flex-direction:column}.my-food-card-actions{justify-content:flex-start;width:100%}}
+@media(max-width:560px){.my-foods-heading h2{font-size:25px}.my-foods-search{padding:12px 13px 0}.my-foods-list{padding:12px 13px 14px}.my-food-card{padding:12px}.my-food-card-actions .btn{flex:1}.my-food-form-panel .panel-body{padding:17px 16px}}
+
+
+/* Weekly shareable PDF report action */
+.history-heading-actions{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap;flex:none}
+.history-heading-actions .btn{min-height:44px;display:inline-flex;align-items:center;justify-content:center;white-space:nowrap}
+.history-heading-actions #exportWeeklyPdfBtn{background:var(--accent2);color:var(--accent);border:1px solid var(--accent2);box-shadow:none}
+.history-heading-actions #exportWeeklyPdfBtn:hover{filter:brightness(1.08)}
+@media(max-width:800px){.history-heading-actions{width:100%;justify-content:flex-start}.history-heading-actions .btn{flex:1}}
+@media(max-width:420px){.history-heading-actions{flex-direction:column;align-items:stretch}.history-heading-actions .btn{width:100%;flex:none}}
+
 </style>
 </head>
 <body>
@@ -146,18 +280,18 @@ button[type="submit"].btn {
 <div id="appView" class="hidden" hidden aria-hidden="true">
   <div class="shell">
     <header class="topbar">
-      <div class="brand"><div class="logo" aria-label="FuelLog logo">
-  <img class="logo-image"
-     src="https://naiym17.github.io/FuelLog/apple-touch-icon.png"
-     alt="FuelLog">
-  <svg class="logo-fallback" hidden viewBox="0 0 24 24" role="img" aria-label="FuelLog logo" xmlns="http://www.w3.org/2000/svg">
-    <path d="M12 2.5C9.2 6.2 5.2 10.1 5.2 14.7a6.8 6.8 0 0 0 13.6 0C18.8 10.1 14.8 6.2 12 2.5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
-    <path d="M13.5 7.8 9.7 13h2.9l-1 4.1 3.8-5.4h-2.8l.9-3.9Z" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width=".6"/>
-  </svg>
-</div><div><h1>FuelLog</h1><p>FOOD & NUTRITION JOURNAL</p></div></div>
-      <div class="top-actions"><div class="date-wrap calendar-wrap"><span>Viewing day</span><button id="calendarToggle" class="calendar-trigger" type="button" aria-haspopup="dialog" aria-expanded="false"><span id="selectedDateLabel">Choose date</span><span aria-hidden="true">▾</span></button><input id="selectedDate" type="date" aria-label="Selected log date" class="visually-hidden-date"><div id="calendarPopover" class="calendar-popover hidden" role="dialog" aria-label="Choose a date"></div></div><button id="exportBtn" class="btn secondary">↓ Export CSV</button><button id="themeToggle" class="btn ghost" type="button" aria-label="Toggle colour theme">🌙</button><button id="profileBtn" class="profile-button" type="button" aria-label="Open profile settings"><div id="topAvatar" class="avatar">F</div><span class="profile-copy"><strong id="topChipName">Your profile</strong><small id="topChipMeta">Profile saved here</small></span></button></div>
+      <a href="#about" id="aboutLogoLink" class="brand brand-about-link" aria-label="About FuelLog">
+        <div class="logo" aria-hidden="true">
+          <img class="logo-image" src="https://naiym17.github.io/FuelLog/apple-touch-icon.png" alt="">
+          <svg class="logo-fallback" hidden viewBox="0 0 24 24" role="img" aria-label="FuelLog logo" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 2.5C9.2 6.2 5.2 10.1 5.2 14.7a6.8 6.8 0 0 0 13.6 0C18.8 10.1 14.8 6.2 12 2.5Z" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M13.5 7.8 9.7 13h2.9l-1 4.1 3.8-5.4h-2.8l.9-3.9Z" fill="currentColor" stroke="currentColor" stroke-linejoin="round" stroke-width=".6"/>
+          </svg>
+        </div><div><h1>FuelLog</h1><p>FOOD & NUTRITION JOURNAL</p></div>
+      </a>
+      <div class="top-actions"><div class="date-wrap calendar-wrap"><span>Viewing day</span><button id="calendarToggle" class="calendar-trigger" type="button" aria-haspopup="dialog" aria-expanded="false"><span id="selectedDateLabel">Choose date</span><span aria-hidden="true">▾</span></button><input id="selectedDate" type="date" aria-label="Selected log date" class="visually-hidden-date"><div id="calendarPopover" class="calendar-popover hidden" role="dialog" aria-label="Choose a date"></div></div><button id="exportBtn" class="btn secondary">↓ Export CSV</button><button id="themeToggle" class="btn ghost" type="button" aria-label="Toggle colour theme">🌙</button><button id="profileBtn" class="profile-button" type="button" aria-label="Open profile settings"><div id="topAvatar" class="avatar">F</div><span class="profile-copy"><strong id="topChipName">Your profile</strong><small id="topChipMeta">Profile</small></span></button></div>
     </header>
-    <nav class="view-tabs" aria-label="Main views"><button id="dashboardTab" class="view-tab active" type="button">Daily log</button><button id="historyTab" class="view-tab" type="button">Weekly history</button></nav>
+    <nav class="view-tabs" aria-label="Main views"><button id="dashboardTab" class="view-tab active" type="button">Daily log</button><button id="myFoodsTab" class="view-tab" type="button">My Foods</button><button id="historyTab" class="view-tab" type="button">Weekly history</button><button id="aboutTab" class="view-tab" type="button">About</button></nav>
     <div id="dashboardView">
     <section class="welcome"><div><p id="dayEyebrow" class="eyebrow">YOUR DAILY OVERVIEW</p><h2 id="welcomeTitle">Let's log your day.</h2><p id="welcomeSubtitle">Small entries add up to a clearer picture.</p></div><div id="streakBadge" class="streak-badge hidden" aria-live="polite"><span class="streak-flame" aria-hidden="true">🔥</span><span><strong id="streakCount">0-day streak</strong><small>Consecutive logging days</small></span></div></section>
     <div id="teenBanner" class="notice warning hidden"><b>Personal targets are switched off for under-18s</b>FuelLog can record food, calories and protein, but it won't set a calorie-deficit or fitness protein target for someone still growing. A GP or registered dietitian can help with individual needs.</div>
@@ -220,18 +354,109 @@ button[type="submit"].btn {
       <section class="panel"><div class="panel-header"><div><h3>Recent foods</h3><p>Quickly reuse a food you've logged before.</p></div><span class="mini-pill">RECENT</span></div><div id="recentFoods" class="tools-panel-body"><div class="soft-empty">Your recently logged foods will appear here.</div></div></section>
     </div>
     </div><!-- /dashboardView -->
+    <section id="myFoodsView" class="my-foods-view hidden" aria-label="My Foods library">
+      <div class="my-foods-heading"><div><p class="eyebrow">YOUR PERSONAL FOOD LIBRARY</p><h2>My Foods</h2><p>Save foods with their usual serving and nutrition values. When you enter the same name in Daily Log, FuelLog can fill in these details for you.</p></div><span id="myFoodsCount" class="mini-pill">0 foods saved</span></div>
+      <div class="my-foods-layout">
+        <section class="panel my-food-form-panel"><div class="panel-header"><div><h3 id="myFoodFormTitle">Add a food</h3><p>Enter the same details you use when logging food.</p></div><span class="pill">MY LIBRARY</span></div>
+          <div class="panel-body">
+            <form id="myFoodForm">
+              <input id="myFoodId" type="hidden">
+              <div class="field"><label for="myFoodName">Food or drink</label><input id="myFoodName" maxlength="180" placeholder="e.g. My usual protein yoghurt" required></div>
+              <div class="field"><label for="myFoodPortion">Portion description</label><input id="myFoodPortion" maxlength="120" placeholder="e.g. 180 g pot" required></div>
+              <div class="field-row">
+                <div class="field"><label for="myFoodServings">Usual servings</label><input id="myFoodServings" type="number" min="0.25" max="20" step="0.25" value="1" required></div>
+                <div class="field"><label for="myFoodCalories">Calories <span class="hint">per serving</span></label><input id="myFoodCalories" type="number" min="0" max="20000" step="1" placeholder="kcal" required></div>
+              </div>
+              <div class="field"><label for="myFoodProtein">Protein <span class="hint">per serving (g)</span></label><input id="myFoodProtein" type="number" min="0" max="1000" step="0.1" placeholder="grams" required></div>
+              <div class="field"><label for="myFoodNotes">Notes <span class="hint">optional</span></label><input id="myFoodNotes" maxlength="180" placeholder="e.g. brand or preparation"></div>
+              <button id="saveMyFoodBtn" type="submit" class="btn" style="width:100%">Save to My Foods →</button>
+              <button id="cancelMyFoodEditBtn" type="button" class="btn ghost hidden" style="width:100%;margin-top:6px">Cancel editing</button>
+            </form>
+            <div class="notice info" style="margin:14px 0 0"><b>Quick logging</b>When a food name matches one saved here, its portion, usual servings, calories, protein and notes are filled in automatically. The log time stays at the current time, and you can still change any value before reviewing the entry.</div>
+          </div>
+        </section>
+        <section class="panel my-foods-list-panel"><div class="panel-header"><div><h3>Your food library</h3><p>Use, edit or remove any saved food.</p></div><span class="mini-pill">REUSABLE</span></div>
+          <div class="my-foods-search"><label class="visually-search-label" for="myFoodsSearch">Search your foods</label><input id="myFoodsSearch" type="search" placeholder="Search by food name…" autocomplete="off"></div>
+          <div id="myFoodsList" class="my-foods-list"><div class="soft-empty">Your saved foods will appear here.</div></div>
+        </section>
+      </div>
+    </section>
     <section id="historyView" class="history-view hidden" aria-label="Weekly history and trends">
-      <div class="history-heading"><div><p class="eyebrow">YOUR PROGRESS AT A GLANCE</p><h2>Weekly history</h2><p>Review your logged days and see how your nutrition diary is building over time.</p></div><button id="historyBackBtn" type="button" class="btn secondary">← Back to daily log</button></div>
+      <div class="history-heading"><div><p class="eyebrow">YOUR PROGRESS AT A GLANCE</p><h2>Weekly history</h2><p>Review your logged days and see how your nutrition diary is building over time.</p></div><div class="history-heading-actions"><button id="exportWeeklyPdfBtn" type="button" class="btn" title="Open a print-ready report to save as PDF">↓ Export weekly PDF</button><button id="historyBackBtn" type="button" class="btn secondary">← Back to daily log</button></div></div>
       <div class="history-controls"><button id="weekPrevBtn" type="button" class="btn secondary" aria-label="Previous week">← Previous</button><strong id="weekLabel">This week</strong><button id="weekNextBtn" type="button" class="btn secondary" aria-label="Next week">Next →</button></div>
       <div id="weeklyStats" class="weekly-stats"></div>
       <section class="panel weekly-panel"><div class="panel-header"><div><h3>Daily trends</h3><p>Bars scale within this week for easier comparison; missing days are shown as unlogged.</p></div></div><div id="weeklyChart" class="weekly-chart"></div></section>
       <section class="panel history-streak-panel"><div class="panel-header"><div><h3>Logging consistency</h3><p>Your recent run of consecutive logged days.</p></div></div><div id="streakHistory" class="history-streak-body"></div></section>
     </section>
+
+    <section id="aboutView" class="about-view hidden" aria-label="About FuelLog" aria-labelledby="aboutTitle">
+      <section class="about-hero">
+        <div class="about-hero-copy">
+          <p class="eyebrow">ABOUT FUELLOG</p>
+          <h2 id="aboutTitle">A clearer picture of what you eat.</h2>
+          <p class="about-lead">FuelLog is a simple food and nutrition journal that helps you record meals, understand your daily calorie and protein totals, and notice patterns across the week.</p>
+          <p class="about-sublead">It’s built to make food logging feel practical and informative—not to label foods as “good” or “bad”.</p>
+          <div class="about-actions"><button id="aboutStartBtn" type="button" class="btn">Go to daily log →</button><button id="aboutHistoryBtn" type="button" class="btn secondary">View weekly history</button></div>
+          <div class="about-highlights"><span><b>01</b> Log food</span><span><b>02</b> Review totals</span><span><b>03</b> Spot patterns</span></div>
+        </div>
+        <div class="about-hero-art" role="img" aria-label="Illustration of a FuelLog nutrition dashboard with calorie, protein and weekly trend summaries">
+          <div class="about-art-orb about-orb-one"></div><div class="about-art-orb about-orb-two"></div>
+          <svg class="about-dashboard-art" viewBox="0 0 430 310" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <rect x="26" y="18" width="378" height="274" rx="23" fill="var(--surface)" stroke="var(--line)" stroke-width="1.5"/>
+            <rect x="47" y="40" width="11" height="11" rx="3" fill="var(--accent)"/><rect x="65" y="41" width="80" height="9" rx="4.5" fill="var(--line)"/>
+            <rect x="47" y="66" width="154" height="78" rx="13" fill="var(--tealbg)"/>
+            <text x="61" y="87" fill="var(--muted)" font-size="10" font-family="system-ui,sans-serif">Calories logged</text>
+            <text x="61" y="113" fill="var(--ink)" font-weight="800" font-size="22" font-family="system-ui,sans-serif">1,480</text>
+            <text x="61" y="130" fill="var(--muted)" font-size="9" font-family="system-ui,sans-serif">kcal today</text>
+            <rect x="215" y="66" width="168" height="78" rx="13" fill="var(--line)"/>
+            <text x="229" y="87" fill="var(--muted)" font-size="10" font-family="system-ui,sans-serif">Protein logged</text>
+            <text x="229" y="113" fill="var(--ink)" font-weight="800" font-size="22" font-family="system-ui,sans-serif">86.5 g</text>
+            <text x="229" y="130" fill="var(--muted)" font-size="9" font-family="system-ui,sans-serif">across your entries</text>
+            <text x="47" y="169" fill="var(--ink)" font-size="11" font-weight="700" font-family="system-ui,sans-serif">Weekly overview</text>
+            <text x="383" y="169" text-anchor="end" fill="var(--muted)" font-size="9" font-family="system-ui,sans-serif">Example only</text>
+            <line x1="48" y1="245" x2="382" y2="245" stroke="var(--line)" stroke-width="1"/>
+            <rect x="65" y="210" width="25" height="35" rx="5" fill="var(--accent)"/>
+            <rect x="109" y="192" width="25" height="53" rx="5" fill="var(--teal)"/>
+            <rect x="153" y="202" width="25" height="43" rx="5" fill="var(--accent)"/>
+            <rect x="197" y="181" width="25" height="64" rx="5" fill="var(--teal)"/>
+            <rect x="241" y="198" width="25" height="47" rx="5" fill="var(--accent)"/>
+            <rect x="285" y="188" width="25" height="57" rx="5" fill="var(--teal)"/>
+            <rect x="329" y="215" width="25" height="30" rx="5" fill="var(--line)"/>
+            <g fill="var(--muted)" font-size="9" font-family="system-ui,sans-serif" text-anchor="middle"><text x="77" y="261">M</text><text x="121" y="261">T</text><text x="165" y="261">W</text><text x="209" y="261">T</text><text x="253" y="261">F</text><text x="297" y="261">S</text><text x="341" y="261">S</text></g>
+          </svg>
+          <div class="about-art-caption"><span class="about-art-check">✓</span><span><b>Every entry adds context</b><small>Daily records, saved foods and weekly trends</small></span></div>
+        </div>
+      </section>
+
+      <section class="about-section" aria-labelledby="aboutStepsTitle">
+        <div class="about-section-heading"><p class="eyebrow">QUICK START</p><h3 id="aboutStepsTitle">How to use FuelLog</h3><p>Start with one entry. You can add detail and explore your history as you go.</p></div>
+        <div class="about-steps-grid">
+          <article class="about-step"><span class="about-step-number">01</span><div><h4>Choose a day</h4><p>Use the date selector in the top bar. Days with food logged are highlighted in the calendar, so you can jump back to an earlier entry.</p></div></article>
+          <article class="about-step"><span class="about-step-number">02</span><div><h4>Add a food or drink</h4><p>Enter the food name, portion, number of servings, time eaten, calories per serving and protein per serving. Use the packaging or a reliable nutrition source for the values.</p></div></article>
+          <article class="about-step"><span class="about-step-number">03</span><div><h4>Review before saving</h4><p>Select <b>Review entry</b> and check the per-serving values and calculated totals. Choose <b>Confirm and add</b> when they look right, or edit the details first.</p></div></article>
+          <article class="about-step"><span class="about-step-number">04</span><div><h4>Reuse and refine</h4><p>Edit or copy a logged item, bookmark foods you often eat, or use the Recent foods list to fill the form faster next time.</p></div></article>
+        </div>
+      </section>
+
+      <section class="about-section" aria-labelledby="aboutFeaturesTitle">
+        <div class="about-section-heading"><p class="eyebrow">MADE FOR EVERYDAY USE</p><h3 id="aboutFeaturesTitle">Your tools, at a glance</h3><p>Everything is designed to help you understand your diary without making it complicated.</p></div>
+        <div class="about-feature-grid">
+          <article class="about-feature-card"><span class="about-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M5 4.5h14v15H5zM8 8h8M8 12h5M8 16h7"/></svg></span><h4>Daily food log</h4><p>See entries in time order, with total calories and protein for the selected day. You can edit, duplicate, bookmark or remove an entry.</p></article>
+          <article class="about-feature-card"><span class="about-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3a9 9 0 1 0 9 9h-9zM14.5 2.8V9H21a9 9 0 0 0-6.5-6.2Z"/></svg></span><h4>Nutrition breakdown</h4><p>Click the Calories logged or Protein logged card to open a pie chart showing how each food contributes to that day's total.</p></article>
+          <article class="about-feature-card"><span class="about-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M4 19.5V12h4v7.5M10 19.5V6h4v13.5M16 19.5V9h4v10.5M3 20.5h18"/></svg></span><h4>Weekly history</h4><p>Compare days with calorie and protein trend bars, review averages across days logged, and move between previous weeks.</p></article>
+          <article class="about-feature-card"><span class="about-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M6 4.5h12a1.5 1.5 0 0 1 1.5 1.5v14l-7.5-4-7.5 4V6A1.5 1.5 0 0 1 6 4.5Z"/></svg></span><h4>My Foods and recent foods</h4><p>Build a personal library of foods with portions, calories and protein. Matching a saved name in Daily Log fills in those details for quicker review, and recent foods are easy to reuse.</p></article>
+          <article class="about-feature-card"><span class="about-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><rect x="3.5" y="5" width="17" height="16" rx="2"/><path d="M7.5 3v4M16.5 3v4M3.5 10h17M7 14h3M13 14h4"/></svg></span><h4>Calendar and streaks</h4><p>Green calendar markers show logged dates. The streak badge appears at three or more consecutive logging days; use it as context, not pressure.</p></article>
+          <article class="about-feature-card"><span class="about-feature-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 21s7.5-3.8 7.5-10.2V5.5L12 2.8 4.5 5.5v5.3C4.5 17.2 12 21 12 21Z"/><path d="m8.5 11.8 2.2 2.2 4.8-5"/></svg></span><h4>Profile and privacy</h4><p>Your profile provides broad estimates. Your diary is stored in this browser; it does not automatically sync between devices.</p></article>
+        </div>
+      </section>
+
+      <section class="about-note" aria-labelledby="aboutNoteTitle"><span class="about-note-icon" aria-hidden="true">ⓘ</span><div><h3 id="aboutNoteTitle">A few important things to know</h3><p>Nutrition values depend on the portions and sources you enter. FuelLog is a tracking tool, not a medical service, and its targets are estimates rather than prescriptions. It does not set a calorie-deficit target for users under 18. Your profile, food log, bookmarks and settings are saved locally in this browser, so clearing site data or switching browsers/devices may remove access to that history unless you have a separate backup.</p></div></section>
+    </section>
     <div class="footer">Enter nutrition values from the food packaging or a reliable source. Your profile and diary are saved in this browser on this device; they do not sync automatically between devices.</div>
   </div>
 </div>
 
-<div id="profileModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle"><div class="modal"><div class="modal-head"><h3 id="profileModalTitle">Profile & targets</h3><button id="closeProfile" class="close" aria-label="Close">×</button></div><div class="modal-body"><form id="editProfileForm"><div id="profileError" class="setup-error hidden"></div><div class="form-grid"><div class="field full"><label for="editName">Name</label><input id="editName" required maxlength="50"></div><div class="field"><label for="editAge">Age (years)</label><input id="editAge" type="number" min="13" max="100" step="1" required></div><div class="field"><label for="editSex">Calculation setting</label><select id="editSex"><option value="average">Use average estimate</option><option value="female">Female formula</option><option value="male">Male formula</option></select></div><div class="field"><label for="editHeight">Height (cm)</label><input id="editHeight" type="number" min="100" max="230" step="0.1" required></div><div class="field"><label for="editWeight">Weight (kg)</label><input id="editWeight" type="number" min="25" max="350" step="0.1" required></div><div class="field full"><label for="editActivity">Usual activity level</label><select id="editActivity"><option value="1.2">Mostly sitting — little planned exercise</option><option value="1.375">Lightly active — light exercise 1–3 days/week</option><option value="1.55">Moderately active — exercise 3–5 days/week</option><option value="1.725">Very active — hard exercise 6–7 days/week</option><option value="1.9">Extremely active — physical job or intense training</option></select></div></div><div class="notice info" style="margin-top:5px"><b>Your information is stored locally</b>Changing details refreshes estimates. Food log entries are not deleted.</div><button class="btn" type="submit" style="width:100%">Save profile</button></form><div class="divider"></div><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><b style="font-size:12px">Reset app data</b><div class="tagline">Delete profile and all food history from this browser.</div></div><button id="resetBtn" class="btn danger" type="button">Reset all</button></div></div></div></div>
+<div id="profileModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="profileModalTitle"><div class="modal"><div class="modal-head"><h3 id="profileModalTitle">Profile & targets</h3><button id="closeProfile" class="close" aria-label="Close">×</button></div><div class="modal-body"><form id="editProfileForm"><div id="profileError" class="setup-error hidden"></div><div class="form-grid"><div class="field full"><label for="editName">Name</label><input id="editName" required maxlength="50"></div><div class="field"><label for="editAge">Age (years)</label><input id="editAge" type="number" min="13" max="100" step="1" required></div><div class="field"><label for="editSex">Calculation setting</label><select id="editSex"><option value="average">Use average estimate</option><option value="female">Female formula</option><option value="male">Male formula</option></select></div><div class="field"><label for="editHeight">Height (cm)</label><input id="editHeight" type="number" min="100" max="230" step="0.1" required></div><div class="field"><label for="editWeight">Weight (kg)</label><input id="editWeight" type="number" min="25" max="350" step="0.1" required></div><div class="field full"><label for="editActivity">Usual activity level</label><select id="editActivity"><option value="1.2">Mostly sitting — little planned exercise</option><option value="1.375">Lightly active — light exercise 1–3 days/week</option><option value="1.55">Moderately active — exercise 3–5 days/week</option><option value="1.725">Very active — hard exercise 6–7 days/week</option><option value="1.9">Extremely active — physical job or intense training</option></select></div></div><div class="notice info" style="margin-top:5px"><b>Your information is stored locally</b>Changing details refreshes estimates. Food log entries are not deleted.</div><button class="btn" type="submit" style="width:100%">Save profile</button></form><div class="divider"></div><div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><div><b style="font-size:12px">Reset app data</b><div class="tagline">Delete profile, food history, saved foods and meals from this browser.</div></div><button id="resetBtn" class="btn danger" type="button">Reset all</button></div></div></div></div>
 
 <div id="savedItemsModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="savedItemsTitle"><div class="modal"><div class="modal-head"><div><h3 id="savedItemsTitle">Saved foods & meals</h3><p class="tagline">Reusable entries you've bookmarked.</p></div><button id="closeSavedItems" class="close" type="button" aria-label="Close saved foods and meals">×</button></div><div class="modal-body"><p class="modal-intro">Bookmark a food in your diary to keep it here. Use Add to log it on the selected date. Older saved multi-food meals also appear here.</p><div id="savedItemsList" class="saved-items-list"><div class="soft-empty">No saved foods yet. Use the bookmark beside a logged item.</div></div></div></div></div>
 <div id="nutritionChartModal" class="modal-backdrop" role="dialog" aria-modal="true" aria-labelledby="nutritionChartTitle"><div class="modal nutrition-chart-modal"><div class="modal-head"><div><h3 id="nutritionChartTitle">Nutrition by food</h3><p id="nutritionChartSubtitle" class="tagline">Breakdown for the selected day.</p></div><button id="closeNutritionChart" class="close" type="button" aria-label="Close nutrition chart">×</button></div><div class="chart-tabs"><button class="chart-tab active" data-chart-type="calories" type="button">Calories</button><button class="chart-tab" data-chart-type="protein" type="button">Protein</button></div><div class="nutrition-chart-layout"><div id="nutritionPieWrap" class="nutrition-pie-wrap"></div><div id="nutritionLegend" class="chart-legend"></div></div></div></div>
@@ -332,7 +557,7 @@ function initApp(){configureLogoAssets();loadState();if(!state.profile){showOnly
 function profileFromForm(form){const d=new FormData(form);return {name:String(d.get('profileName')||'').trim(),age:Number(d.get('age')),sex:String(d.get('sex')||'average'),height:Number(d.get('height')),weight:Number(d.get('weight')),activity:Number(d.get('activity')),createdAt:state.profile?.createdAt||new Date().toISOString()}}
 function validProfile(p){return p.name&&Number.isFinite(p.age)&&p.age>=13&&p.age<=100&&p.height>=100&&p.height<=230&&p.weight>=25&&p.weight<=350&&[1.2,1.375,1.55,1.725,1.9].includes(Number(p.activity));}
 function render(){if(!state.profile)return;const p=state.profile,c=calcProfile(p),date=$('selectedDate').value||localDate();const dayEntries=state.logs.filter(x=>x.date===date).sort((a,b)=>a.time.localeCompare(b.time)||String(a.createdAt).localeCompare(String(b.createdAt)));const kcal=dayEntries.reduce((s,e)=>s+Number(e.calories||0),0);const protein=dayEntries.reduce((s,e)=>s+Number(e.protein||0),0);
- $('welcomeTitle').textContent=`${date===localDate()?'Let’s fuel today':formatDate(date)}.`;$('welcomeSubtitle').textContent=date===localDate()?'Log what you eat and see your nutrition at a glance.':'Viewing a previous day. New entries will be saved to this date.';$('topChipName').textContent=p.name;$('topAvatar').textContent=(p.name.trim()[0]||'F').toUpperCase();$('topChipMeta').textContent=`Age ${p.age} · profile saved here`;$('logTitle').textContent=date===localDate()?"Today's food log":`${formatDate(date)} food log`;$('logSubtitle').textContent='Entries are shown in chronological order.';$('dayEyebrow').textContent=date===localDate()?'YOUR DAILY OVERVIEW':'PAST DAY OVERVIEW';
+ $('welcomeTitle').textContent=`${date===localDate()?'Let’s fuel today':formatDate(date)}.`;$('welcomeSubtitle').textContent=date===localDate()?'Log what you eat and see your nutrition at a glance.':'Viewing a previous day. New entries will be saved to this date.';$('topChipName').textContent=p.name;$('topAvatar').textContent=(p.name.trim()[0]||'F').toUpperCase();$('topChipMeta').textContent='Profile';$('logTitle').textContent=date===localDate()?"Today's food log":`${formatDate(date)} food log`;$('logSubtitle').textContent='Entries are shown in chronological order.';$('dayEyebrow').textContent=date===localDate()?'YOUR DAILY OVERVIEW':'PAST DAY OVERVIEW';
  $('teenBanner').classList.toggle('hidden',!c.under18);$('underweightBanner').classList.toggle('hidden',c.under18||!c.underweight);
  $('caloriesValue').innerHTML=`${fmt(kcal)} <span>kcal</span>`;$('proteinValue').innerHTML=`${fmt(protein,1)} <span>g</span>`;$('maintenanceValue').textContent=c.under18?'Not set':`${fmt(c.maintenance)} kcal`;$('maintenanceFoot').textContent=c.under18?'Needs vary during growth':'Estimated daily maintenance';
  $('planValue').textContent=c.calorieGoal?`${fmt(c.calorieGoal)} kcal`:c.under18?'No deficit target':'No deficit target';$('planFoot').textContent=c.calorieGoal?`${fmt(c.maintenance-c.calorieGoal)} kcal below maintenance (about 15%)`:c.under18?'Individual guidance is recommended':'A deficit is not set for this profile';
@@ -351,8 +576,25 @@ function render(){if(!state.profile)return;const p=state.profile,c=calcProfile(p
 function formatDate(value){const d=new Date(value+'T12:00:00');return d.toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short',year:'numeric'});}
 function escapeHTML(v){return String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));}
 function toast(message){const t=$('toast');t.textContent=message;t.classList.add('show');clearTimeout(toastTimer);toastTimer=setTimeout(()=>t.classList.remove('show'),2600);}
-function fillFoodOptions(){const list=$('foodOptions');list.innerHTML=foods.map(f=>`<option value="${escapeHTML(f.name)}"></option>`).join('');}
-function lookupFood(value){return foods.find(f=>f.name.toLowerCase()===String(value).trim().toLowerCase());}
+function fillFoodOptions(){const list=$('foodOptions');if(!list)return;const all=[...(state.savedFoods||[]).map(f=>({name:f.name})),...foods];const seen=new Set();list.innerHTML=all.filter(f=>{const key=String(f.name||'').trim().toLowerCase();if(!key||seen.has(key))return false;seen.add(key);return true;}).map(f=>`<option value="${escapeHTML(f.name)}"></option>`).join('');}
+function lookupFood(value){const key=String(value).trim().toLowerCase();const custom=[...(state.savedFoods||[])].reverse().find(f=>String(f.name||'').trim().toLowerCase()===key);if(custom)return {name:custom.name,portion:custom.portion,kcal:Number(custom.caloriesPerServing||0),protein:Number(custom.proteinPerServing||0),description:custom.notes||'A food saved in your My Foods library. Nutrition values reflect the information you entered.'};return foods.find(f=>f.name.toLowerCase()===key);}
+let lastAppliedFoodName='';
+function applyFoodTemplateByName(showNotice=false){
+  const name=$('foodName').value.trim(),key=name.toLowerCase();
+  if(!key){lastAppliedFoodName='';return false;}
+  const custom=[...(state.savedFoods||[])].reverse().find(f=>String(f.name||'').trim().toLowerCase()===key);
+  const preset=custom||foods.find(f=>f.name.toLowerCase()===key);
+  if(!preset){lastAppliedFoodName='';return false;}
+  if(lastAppliedFoodName===key)return true;
+  $('portion').value=preset.portion||'';
+  $('servings').value=String(preset.servings||1);
+  $('foodCalories').value=String(custom?Number(custom.caloriesPerServing||0):Number(preset.kcal||0));
+  $('foodProtein').value=String(custom?Number(custom.proteinPerServing||0):Number(preset.protein||0));
+  $('foodNotes').value=custom?(preset.notes||''):'';
+  lastAppliedFoodName=key;
+  if(showNotice)toast(custom?'My Foods values filled in. Check them before saving.':'Preset nutrition filled in. Check the values before saving.');
+  return true;
+}
 function selectPreset(){}
 function onReview(ev){
   ev.preventDefault();
@@ -384,7 +626,7 @@ function exportCSV(){
 $('setupForm').addEventListener('submit',e=>{e.preventDefault();const p=profileFromForm(e.currentTarget);if(!validProfile(p)){$('setupError').textContent='Please check the details and enter a valid age, height and weight.';$('setupError').classList.remove('hidden');return}state.profile=p;saveState();showOnly('app');$('selectedDate').value=localDate();render();toast('Profile created. Welcome to FuelLog!');});
 $('foodForm').addEventListener('submit',onReview);$('selectedDate').addEventListener('change',render);$('profileBtn').addEventListener('click',fillEditForm);$('closeProfile').addEventListener('click',closeModal);$('profileModal').addEventListener('click',e=>{if(e.target===$('profileModal'))closeModal()});$('exportBtn').addEventListener('click',exportCSV);
 $('editProfileForm').addEventListener('submit',e=>{e.preventDefault();const data=new FormData();const p={name:$('editName').value.trim(),age:Number($('editAge').value),sex:$('editSex').value,height:Number($('editHeight').value),weight:Number($('editWeight').value),activity:Number($('editActivity').value),createdAt:state.profile.createdAt||new Date().toISOString()};if(!validProfile(p)){$('profileError').textContent='Please check all profile details.';$('profileError').classList.remove('hidden');return}state.profile=p;saveState();closeModal();render();toast('Profile updated.');});
-$('resetBtn').addEventListener('click',()=>{if(!confirm('This permanently removes the saved profile, food logs, bookmarks and saved meals from this browser. Continue?'))return;try{localStorage.removeItem(STORE_KEY)}catch(e){}state={profile:null,logs:[],meals:[],savedFoods:[]};closeModal();showDashboard();showOnly('setup');$('setupForm').reset();toast('App data reset.');});
+$('resetBtn').addEventListener('click',()=>{if(!confirm('This permanently removes the saved profile, food logs, bookmarks and saved meals from this browser. Continue?'))return;try{localStorage.removeItem(STORE_KEY)}catch(e){}state={profile:null,logs:[],meals:[],savedFoods:[]};closeModal();clearMyFoodForm();showDashboard();showOnly('setup');$('setupForm').reset();toast('App data reset.');});
 const themeToggle=$('themeToggle');
 function applyTheme(theme){
   document.documentElement.dataset.theme=theme;
@@ -436,6 +678,55 @@ function renderRecentFoods(){
   if(!distinct.length){root.innerHTML='<div class="soft-empty">Your recently logged foods will appear here.</div>';return;}
   root.innerHTML=`<div class="recent-list">${distinct.map(e=>`<div class="recent-item"><div class="recent-item-main"><strong>${escapeHTML(e.name)}</strong><small>${escapeHTML(e.portion||'')} · ${fmt(e.caloriesPerServing??e.calories)} kcal · ${fmt(e.proteinPerServing??e.protein,1)} g protein per serving</small></div><button type="button" class="btn secondary" data-reuse="${escapeHTML(e.id)}">Use again</button></div>`).join('')}</div>`;
   root.querySelectorAll('[data-reuse]').forEach(btn=>btn.addEventListener('click',()=>{const e=state.logs.find(x=>x.id===btn.dataset.reuse);if(e)duplicateEntry(e.id); }));
+}
+function normalizedFoodName(name){return String(name||'').trim().toLowerCase();}
+function clearMyFoodForm(){
+  $('myFoodForm').reset();$('myFoodId').value='';$('myFoodServings').value='1';$('myFoodFormTitle').textContent='Add a food';$('saveMyFoodBtn').textContent='Save to My Foods →';$('cancelMyFoodEditBtn').classList.add('hidden');
+}
+function renderMyFoods(){
+  const root=$('myFoodsList');if(!root)return;
+  const query=String($('myFoodsSearch')?.value||'').trim().toLowerCase();
+  const all=[...(state.savedFoods||[])].sort((a,b)=>String(a.name||'').localeCompare(String(b.name||'')));
+  const shown=all.filter(f=>!query||[f.name,f.portion,f.notes].some(v=>String(v||'').toLowerCase().includes(query)));
+  $('myFoodsCount').textContent=`${all.length} ${all.length===1?'food':'foods'} saved`;
+  if(!shown.length){root.innerHTML=all.length?'<div class="soft-empty">No foods match your search. Try another name.</div>':'<div class="soft-empty">No foods saved yet. Add a food here or use the bookmark button beside a food in your Daily Log.</div>';return;}
+  root.innerHTML=shown.map(f=>`<article class="my-food-card"><div class="my-food-card-main"><strong>${escapeHTML(f.name)}</strong><small>${escapeHTML(f.portion||'No portion')} · ${fmt(f.caloriesPerServing||0)} kcal · ${fmt(f.proteinPerServing||0,1)} g protein per serving${Number(f.servings||1)!==1?` · usual amount: ${fmt(f.servings,2).replace(/\.00$/,'')} servings`:''}${f.notes?`<br>${escapeHTML(f.notes)}`:''}</small></div><div class="my-food-card-actions"><button type="button" class="btn secondary" data-use-my-food="${escapeHTML(f.id)}">Use in log</button><button type="button" class="btn secondary" data-edit-my-food="${escapeHTML(f.id)}">Edit</button><button type="button" class="btn danger" data-delete-my-food="${escapeHTML(f.id)}">Remove</button></div></article>`).join('');
+  root.querySelectorAll('[data-use-my-food]').forEach(btn=>btn.addEventListener('click',()=>useMyFood(btn.dataset.useMyFood)));
+  root.querySelectorAll('[data-edit-my-food]').forEach(btn=>btn.addEventListener('click',()=>editMyFood(btn.dataset.editMyFood)));
+  root.querySelectorAll('[data-delete-my-food]').forEach(btn=>btn.addEventListener('click',()=>deleteMyFood(btn.dataset.deleteMyFood)));
+}
+function saveMyFoodForm(ev){
+  ev.preventDefault();
+  const id=$('myFoodId').value.trim(),name=$('myFoodName').value.trim(),portion=$('myFoodPortion').value.trim(),servings=Number($('myFoodServings').value),kcalRaw=$('myFoodCalories').value.trim(),proteinRaw=$('myFoodProtein').value.trim(),kcal=Number(kcalRaw),protein=Number(proteinRaw),notes=$('myFoodNotes').value.trim();
+  if(!name||!portion||!Number.isFinite(servings)||servings<=0||kcalRaw===''||!Number.isFinite(kcal)||kcal<0||proteinRaw===''||!Number.isFinite(protein)||protein<0){toast('Please complete the food name, portion, servings, calories and protein.');return;}
+  const existing=id?state.savedFoods.find(f=>f.id===id):null;
+  const food={id:existing?existing.id:(crypto.randomUUID?crypto.randomUUID():`myfood-${Date.now()}-${Math.random()}`),name,portion,servings,caloriesPerServing:Math.round(kcal),proteinPerServing:Number(protein.toFixed(1)),notes,createdAt:existing?.createdAt||new Date().toISOString(),updatedAt:new Date().toISOString()};
+  const dupe=state.savedFoods.find(f=>f.id!==food.id&&normalizedFoodName(f.name)===normalizedFoodName(name)&&String(f.portion||'').trim().toLowerCase()===portion.toLowerCase());
+  if(dupe){toast('A food with this name and portion is already saved. Edit that entry instead.');return;}
+  if(existing){state.savedFoods=state.savedFoods.map(f=>f.id===id?food:f);}
+  else state.savedFoods.unshift(food);
+  const saved=saveState();clearMyFoodForm();fillFoodOptions();render();renderMyFoods();renderSavedItems();
+  toast(saved?`${name} ${existing?'updated':'saved'} in My Foods.`:'Updated for this session, but the browser could not save it.');
+}
+function editMyFood(id){
+  const f=state.savedFoods.find(x=>x.id===id);if(!f)return;
+  $('myFoodId').value=f.id;$('myFoodName').value=f.name||'';$('myFoodPortion').value=f.portion||'';$('myFoodServings').value=String(f.servings||1);$('myFoodCalories').value=String(f.caloriesPerServing||0);$('myFoodProtein').value=String(f.proteinPerServing||0);$('myFoodNotes').value=f.notes||'';$('myFoodFormTitle').textContent='Edit saved food';$('saveMyFoodBtn').textContent='Save changes →';$('cancelMyFoodEditBtn').classList.remove('hidden');
+  $('myFoodForm').scrollIntoView({behavior:'smooth',block:'start'});$('myFoodName').focus();
+}
+function deleteMyFood(id){
+  const f=state.savedFoods.find(x=>x.id===id);if(!f)return;
+  if(!confirm(`Remove “${f.name}” from My Foods?`))return;
+  state.savedFoods=state.savedFoods.filter(x=>x.id!==id);if($('myFoodId').value===id)clearMyFoodForm();
+  saveState();fillFoodOptions();render();renderMyFoods();renderSavedItems();toast(`Removed “${f.name}” from My Foods.`);
+}
+function useMyFood(id){
+  const f=state.savedFoods.find(x=>x.id===id);if(!f)return;
+  showDashboard();fillFoodFormFromEntry({...f,caloriesPerServing:f.caloriesPerServing,proteinPerServing:f.proteinPerServing},false);
+  $('foodTime').value=currentTimeValue();toast('Food details filled in. Review and confirm to add it to your diary.');
+}
+function showMyFoods(){
+  $('dashboardView').classList.add('hidden');$('historyView').classList.add('hidden');$('aboutView').classList.add('hidden');$('myFoodsView').classList.remove('hidden');
+  $('dashboardTab').classList.remove('active');$('historyTab').classList.remove('active');$('aboutTab').classList.remove('active');$('myFoodsTab').classList.add('active');renderMyFoods();window.scrollTo({top:0,behavior:'smooth'});
 }
 function renderSavedItems(){
   const root=$('savedItemsList');if(!root)return;
@@ -490,7 +781,7 @@ function addSavedFood(id){
   state.logs.push({id:crypto.randomUUID?crypto.randomUUID():`${Date.now()}-${Math.random()}`,name:f.name,portion:f.portion,servings,caloriesPerServing:kcal,proteinPerServing:protein,calories:Math.round(kcal*servings),protein:Number((protein*servings).toFixed(1)),time:currentTimeValue(),date,notes:f.notes||'',createdAt:new Date().toISOString(),source:'Saved food'});
   const saved=saveState();closeSavedItems();render();toast(saved?`Added “${f.name}” to your food log.`:'Food added for this session, but browser storage could not save it.');
 }
-function resetReviewForm(){pendingEntry=null;editingId=null;$('reviewCard').classList.remove('show');$('reviewCard').innerHTML='';$('foodForm').reset();$('servings').value='1';$('foodTime').value=currentTimeValue();$('addPanel').querySelector('.panel-header h3').textContent='Log a food';$('reviewBtn').textContent='Review entry →';}
+function resetReviewForm(){pendingEntry=null;editingId=null;lastAppliedFoodName='';$('reviewCard').classList.remove('show');$('reviewCard').innerHTML='';$('foodForm').reset();$('servings').value='1';$('foodTime').value=currentTimeValue();$('addPanel').querySelector('.panel-header h3').textContent='Log a food';$('reviewBtn').textContent='Review entry →';}
 function renderReview(entry){
   const root=$('reviewCard'),preset=lookupFood(entry.name);
   const summary=preset?.description||`These values are a manual estimate for the portion you entered. For a closer match, compare them with the product label or a reliable nutrition source. Values are scaled by the number of servings.`;
@@ -509,6 +800,7 @@ function confirmReviewedEntry(){
   toast(saved?(existingIndex>=0?'Food entry updated.':`Added ${entry.name} to your food log.`):'Entry updated for this session, but browser storage could not save it.');
 }
 function fillFoodFormFromEntry(e,editing){
+  lastAppliedFoodName=String(e.name||'').trim().toLowerCase();
   $('foodName').value=e.name||'';$('portion').value=e.portion||'';$('servings').value=String(e.servings||1);$('foodTime').value=editing?(e.time||currentTimeValue()):currentTimeValue();$('foodCalories').value=String(e.caloriesPerServing??e.calories??0);$('foodProtein').value=String(e.proteinPerServing??e.protein??0);$('foodNotes').value=e.notes||'';
   editingId=editing?e.id:null;pendingEntry=null;$('reviewCard').classList.remove('show');$('reviewCard').innerHTML='';$('addPanel').querySelector('.panel-header h3').textContent=editing?'Edit food entry':'Log a food';$('reviewBtn').textContent=editing?'Review changes →':'Review entry →';
   $('addPanel').scrollIntoView({behavior:'smooth',block:'start'});$('foodName').focus();
@@ -557,14 +849,82 @@ function renderWeeklyHistory(){
   $('weeklyChart').innerHTML=dayRows.map(d=>{const label=dateFromISO(d.date).toLocaleDateString('en-GB',{weekday:'short'}),sub=dateFromISO(d.date).toLocaleDateString('en-GB',{day:'numeric',month:'short'});return `<div class="week-day ${d.entries.length?'':'unlogged'}"><div class="week-day-label"><strong>${label}${d.date===today?' · Today':''}</strong><small>${sub}${d.entries.length?' · '+d.entries.length+' '+(d.entries.length===1?'entry':'entries'):' · No log'}</small></div><div class="day-bars"><div class="trend-bar-track" aria-label="Calories logged"><div class="trend-bar" style="width:${d.kcal?Math.max(3,d.kcal/maxKcal*100):0}%"></div></div><div class="trend-bar-track" aria-label="Protein logged"><div class="trend-bar protein-bar" style="width:${d.protein?Math.max(3,d.protein/maxProtein*100):0}%"></div></div></div><div class="week-values"><span><b>${d.entries.length?fmt(d.kcal):'—'}</b> kcal</span><span><b>${d.entries.length?fmt(d.protein,1):'—'}</b> g protein</span></div></div>`;}).join('');
   const streak=getCurrentStreak();$('streakHistory').innerHTML=`<span class="history-streak-icon" aria-hidden="true">${streak>=3?'🔥':'📅'}</span><div><strong>${streak>=3?`${streak} consecutive days logged`:streak===1?'1 consecutive day logged':'Keep building your routine'}</strong><p>${streak>=3?'Your current streak is active. Log food on another day to keep it going.':streak===2?'Two consecutive days logged. One more day will unlock your streak badge.':'Log food on consecutive days to build a streak. There is no need to aim for perfection—use the diary in a way that works for you.'}</p></div>`;
 }
-function showHistory(){historyWeekOffset=0;$('dashboardView').classList.add('hidden');$('historyView').classList.remove('hidden');$('dashboardTab').classList.remove('active');$('historyTab').classList.add('active');renderWeeklyHistory();}
-function showDashboard(){$('historyView').classList.add('hidden');$('dashboardView').classList.remove('hidden');$('historyTab').classList.remove('active');$('dashboardTab').classList.add('active');}
+
+function exportWeeklyPDF(){
+  const anchor=$('selectedDate').value||localDate();
+  const weekStart=shiftDate(getWeekStart(anchor),historyWeekOffset*7);
+  const weekEnd=shiftDate(weekStart,6);
+  const days=[];
+  for(let i=0;i<7;i++){
+    const date=shiftDate(weekStart,i);
+    const entries=state.logs.filter(e=>e.date===date).sort((a,b)=>String(a.time||'').localeCompare(String(b.time||''))||String(a.createdAt||'').localeCompare(String(b.createdAt||'')));
+    const kcal=entries.reduce((sum,e)=>sum+(e.calories!=null?Number(e.calories):Number(e.caloriesPerServing||0)*Number(e.servings||1)),0);
+    const protein=entries.reduce((sum,e)=>sum+(e.protein!=null?Number(e.protein):Number(e.proteinPerServing||0)*Number(e.servings||1)),0);
+    days.push({date,entries,kcal,protein});
+  }
+  const allEntries=days.reduce((all,d)=>all.concat(d.entries),[]);
+  const totalKcal=days.reduce((sum,d)=>sum+d.kcal,0);
+  const totalProtein=days.reduce((sum,d)=>sum+d.protein,0);
+  const loggedDays=days.filter(d=>d.entries.length).length;
+  const weekRange=`${dateFromISO(weekStart).toLocaleDateString('en-GB',{day:'numeric',month:'short'})} – ${dateFromISO(weekEnd).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}`;
+  const prettyDate=value=>dateFromISO(value).toLocaleDateString('en-GB',{weekday:'long',day:'numeric',month:'long',year:'numeric'});
+  const generatedAt=new Date().toLocaleString('en-GB',{day:'numeric',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});
+  const profileName=String(state.profile?.name||'FuelLog user');
+  const dayMarkup=days.map((day,index)=>{
+    const dayDate=dateFromISO(day.date);
+    const title=dayDate.toLocaleDateString('en-GB',{weekday:'long'});
+    const dateText=dayDate.toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'});
+    const rows=day.entries.map(entry=>{
+      const servings=Number(entry.servings||1);
+      const kcal=(entry.calories!=null?Number(entry.calories):Number(entry.caloriesPerServing||0)*servings);
+      const protein=(entry.protein!=null?Number(entry.protein):Number(entry.proteinPerServing||0)*servings);
+      const portion=[entry.portion||'',`${fmt(servings,2).replace(/\.00$/,'')} serving${servings===1?'':'s'}`,entry.notes||''].filter(Boolean).join(' · ');
+      return `<tr><td class="time-cell">${escapeHTML(entry.time||'—')}</td><td><span class="food-title">${escapeHTML(entry.name||'Food entry')}</span><span class="food-detail">${escapeHTML(portion)}</span></td><td class="number-cell">${fmt(kcal)} <small>kcal</small></td><td class="number-cell">${fmt(protein,1)} <small>g</small></td></tr>`;
+    }).join('');
+    const body=rows||'<tr><td colspan="4" class="empty-day">No food logged on this day.</td></tr>';
+    return `<section class="day-section"><div class="day-heading"><div><span class="day-index">DAY ${String(index+1).padStart(2,'0')}</span><h2>${escapeHTML(title)}</h2><p>${escapeHTML(dateText)}${day.date===localDate()?' · Today':''}</p></div><div class="day-status ${day.entries.length?'has-entries':''}">${day.entries.length?`${day.entries.length} ${day.entries.length===1?'entry':'entries'}`:'No entries'}</div></div><table class="food-table"><thead><tr><th>Time</th><th>Food and portion</th><th>Calories</th><th>Protein</th></tr></thead><tbody>${body}</tbody><tfoot><tr><td colspan="2">Daily total</td><td>${fmt(day.kcal)} <small>kcal</small></td><td>${fmt(day.protein,1)} <small>g</small></td></tr></tfoot></table></section>`;
+  }).join('');
+  const report=`<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>FuelLog Weekly Nutrition Report - ${escapeHTML(weekRange)}</title><style>
+    :root{--ink:#18352a;--muted:#66796f;--line:#dce8df;--accent:#a6ef5c;--dark:#1c2820;--teal:#16845b;--tealbg:#e2f5e9;--surface:#fff;--pale:#f3f8f4}
+    *{box-sizing:border-box}html{background:#edf3ee}body{margin:0;color:var(--ink);font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;font-size:10pt;line-height:1.45;background:#fff}
+    .report{max-width:930px;margin:28px auto;padding:0 30px 30px}.report-topline{display:flex;align-items:center;justify-content:space-between;gap:15px;border-bottom:1px solid var(--line);padding:0 0 16px}.brand{display:flex;align-items:center;gap:10px}.brand-mark{display:grid;place-items:center;width:38px;height:38px;border-radius:12px;background:var(--dark);color:var(--accent);font-size:18px;font-weight:900}.brand strong{display:block;font-size:14px;letter-spacing:-.3px}.brand small,.generated{display:block;font-size:8.5pt;color:var(--muted)}.report-label{display:inline-flex;align-items:center;gap:7px;padding:7px 10px;border:1px solid var(--line);border-radius:999px;background:var(--pale);font-size:8pt;font-weight:800;color:var(--teal);letter-spacing:.45px;text-transform:uppercase}
+    .hero{padding:25px 0 19px}.eyebrow{font-size:8pt;text-transform:uppercase;letter-spacing:1.5px;color:var(--teal);font-weight:800;margin:0 0 7px}.hero h1{font-size:28pt;line-height:1.08;letter-spacing:-1.1px;margin:0}.hero .range{font-size:12pt;color:var(--muted);margin:8px 0 0}.hero .prepared{font-size:9pt;color:var(--muted);margin:7px 0 0}
+    .summary-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:0 0 17px}.summary-card{border:1px solid var(--line);border-radius:13px;padding:13px 14px;background:var(--pale);min-width:0}.summary-card.primary{background:var(--dark);border-color:var(--dark);color:#fff}.summary-card span{display:block;font-size:8pt;color:var(--muted);font-weight:750}.summary-card.primary span{color:#c4d2c7}.summary-card strong{display:block;font-size:19pt;letter-spacing:-.5px;margin:7px 0 2px;line-height:1.1;overflow-wrap:anywhere}.summary-card strong small{font-size:9pt;letter-spacing:0}.summary-card em{display:block;font-size:8pt;color:var(--muted);font-style:normal}.summary-card.primary em{color:#c4d2c7}
+    .intro-row{display:flex;justify-content:space-between;gap:12px;align-items:center;border-top:1px solid var(--line);padding:11px 0 0;margin-bottom:18px;color:var(--muted);font-size:8.5pt}.intro-row strong{color:var(--ink)}.section-title{display:flex;align-items:flex-end;justify-content:space-between;gap:10px;margin:16px 0 12px}.section-title h2{font-size:15pt;letter-spacing:-.4px;margin:0}.section-title p{font-size:8pt;color:var(--muted);margin:0}
+    .day-section{border:1px solid var(--line);border-radius:13px;margin:0 0 13px;overflow:hidden;break-inside:avoid;page-break-inside:avoid}.day-heading{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 14px;background:var(--pale);border-bottom:1px solid var(--line)}.day-index{display:block;font-size:7pt;letter-spacing:1.1px;font-weight:800;color:var(--teal);margin-bottom:2px}.day-heading h2{font-size:12pt;line-height:1.2;margin:0;letter-spacing:-.2px}.day-heading p{font-size:8pt;color:var(--muted);margin:3px 0 0}.day-status{font-size:8pt;color:var(--muted);padding:5px 8px;border-radius:999px;background:#fff;border:1px solid var(--line);white-space:nowrap}.day-status.has-entries{background:var(--tealbg);color:var(--teal);border-color:#c5e7d0}
+    table{border-collapse:collapse;width:100%;table-layout:fixed}th{font-size:7pt;letter-spacing:.55px;text-transform:uppercase;color:var(--muted);text-align:left;background:#fff;padding:8px 10px;border-bottom:1px solid var(--line)}td{padding:8px 10px;font-size:8.5pt;border-bottom:1px solid #edf2ee;vertical-align:top;overflow-wrap:anywhere}tr:last-child td{border-bottom:0}th:first-child,td:first-child{width:13%}th:nth-child(2),td:nth-child(2){width:49%}th:nth-child(3),td:nth-child(3){width:19%}th:nth-child(4),td:nth-child(4){width:19%}.time-cell{color:var(--muted);font-variant-numeric:tabular-nums;white-space:nowrap}.food-title{display:block;font-weight:750;color:var(--ink)}.food-detail{display:block;font-size:7.5pt;color:var(--muted);margin-top:2px}.number-cell{font-weight:800;font-variant-numeric:tabular-nums;white-space:nowrap}.number-cell small,tfoot small{font-size:7pt;color:var(--muted);font-weight:600}.empty-day{text-align:center;color:var(--muted);padding:13px}tfoot td{background:#f7faf7;font-weight:800;border-top:1px solid var(--line);border-bottom:0!important}tfoot td:first-child{color:var(--ink)}tfoot td:not(:first-child){white-space:nowrap}
+    .weekly-total{margin:18px 0 0;padding:17px 18px;border-radius:15px;background:var(--dark);color:#fff;display:flex;align-items:center;justify-content:space-between;gap:16px}.weekly-total h2{font-size:13pt;margin:0}.weekly-total p{font-size:8pt;color:#c4d2c7;margin:4px 0 0}.weekly-total-values{display:flex;gap:23px}.weekly-total-values span{display:block;font-size:7.5pt;color:#c4d2c7}.weekly-total-values strong{display:block;font-size:15pt;margin-top:3px;color:var(--accent);white-space:nowrap}.report-note{font-size:7.5pt;color:var(--muted);line-height:1.6;border-top:1px solid var(--line);margin-top:15px;padding-top:12px}.report-footer{display:flex;justify-content:space-between;gap:10px;margin-top:14px;color:var(--muted);font-size:7.5pt}.screen-hint{margin:14px 0 0;color:var(--muted);font-size:8pt;text-align:center}
+    @media(max-width:600px){.report{margin:10px auto;padding:0 12px 20px}.report-topline{align-items:flex-start;flex-direction:column}.summary-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.hero h1{font-size:25pt}.weekly-total{align-items:flex-start;flex-direction:column}.weekly-total-values{width:100%;justify-content:space-between;gap:10px}.day-section{break-inside:auto;page-break-inside:auto}}
+    @page{size:A4 portrait;margin:12mm}
+    @media print{html,body{background:#fff!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.report{max-width:none;margin:0;padding:0}.screen-hint{display:none}.report-topline{padding-bottom:10px}.hero{padding:18px 0 13px}.summary-card,.day-section,.weekly-total{break-inside:avoid-page;page-break-inside:avoid}.day-section{margin-bottom:9px}.day-heading{break-after:avoid-page;page-break-after:avoid}.report-footer{margin-top:10px}.report-note{margin-top:10px;padding-top:9px}.weekly-total{margin-top:12px}thead{display:table-header-group}tr{break-inside:avoid-page;page-break-inside:avoid}}
+    </style></head><body><main class="report">
+    <div class="report-topline"><div class="brand"><div class="brand-mark">F</div><div><strong>FuelLog</strong><small>FOOD &amp; NUTRITION JOURNAL</small></div></div><div class="report-label">Weekly nutrition report</div></div>
+    <section class="hero"><p class="eyebrow">YOUR WEEK IN REVIEW</p><h1>Weekly nutrition summary</h1><p class="range">${escapeHTML(weekRange)}</p><p class="prepared">Prepared for ${escapeHTML(profileName)} · Generated ${escapeHTML(generatedAt)}</p></section>
+    <section class="summary-grid"><article class="summary-card primary"><span>Total calories</span><strong>${fmt(totalKcal)} <small>kcal</small></strong><em>Across all logged foods</em></article><article class="summary-card"><span>Total protein</span><strong>${fmt(totalProtein,1)} <small>g</small></strong><em>Across all logged foods</em></article><article class="summary-card"><span>Days logged</span><strong>${loggedDays} <small>/ 7</small></strong><em>Days with at least one entry</em></article><article class="summary-card"><span>Food entries</span><strong>${allEntries.length}</strong><em>Items recorded this week</em></article></section>
+    <div class="intro-row"><span><strong>Daily breakdown</strong> · Monday to Sunday</span><span>Includes all seven dates in this week</span></div>
+    ${dayMarkup}
+    <section class="weekly-total"><div><h2>Weekly totals</h2><p>${loggedDays} of 7 days logged · ${allEntries.length} food ${allEntries.length===1?'entry':'entries'}</p></div><div class="weekly-total-values"><div><span>Calories</span><strong>${fmt(totalKcal)} kcal</strong></div><div><span>Protein</span><strong>${fmt(totalProtein,1)} g</strong></div></div></section>
+    <p class="report-note"><strong>About this report:</strong> Nutrition figures are based on the values recorded in FuelLog and are estimates, not independently verified measurements. This report is intended for personal sharing and general information, not as medical advice.</p>
+    <footer class="report-footer"><span>FuelLog · Weekly nutrition report</span><span>${escapeHTML(weekRange)}</span></footer>
+    <p class="screen-hint">To save or share this report as a PDF, choose <strong>Save as PDF</strong> or <strong>Print to PDF</strong> in your browser's print dialog.</p>
+    </main><script>window.addEventListener('load',function(){setTimeout(function(){window.focus();window.print();},350);});window.addEventListener('afterprint',function(){setTimeout(function(){window.close();},300);});</scr`+`ipt></body></html>`;
+  const printWindow=window.open('','_blank');
+  if(!printWindow){toast('Please allow pop-ups for FuelLog to export your weekly report.');return;}
+  printWindow.document.open();printWindow.document.write(report);printWindow.document.close();
+  toast('Your weekly report is ready. Choose Save as PDF in the print dialog.');
+}
+
+function showHistory(){historyWeekOffset=0;$('dashboardView').classList.add('hidden');$('myFoodsView').classList.add('hidden');$('aboutView').classList.add('hidden');$('historyView').classList.remove('hidden');$('dashboardTab').classList.remove('active');$('myFoodsTab').classList.remove('active');$('historyTab').classList.add('active');$('aboutTab').classList.remove('active');renderWeeklyHistory();}
+function showDashboard(){$('historyView').classList.add('hidden');$('myFoodsView').classList.add('hidden');$('aboutView').classList.add('hidden');$('dashboardView').classList.remove('hidden');$('myFoodsTab').classList.remove('active');$('historyTab').classList.remove('active');$('aboutTab').classList.remove('active');$('dashboardTab').classList.add('active');}
+function showAbout(){$('dashboardView').classList.add('hidden');$('historyView').classList.add('hidden');$('myFoodsView').classList.add('hidden');$('aboutView').classList.remove('hidden');$('dashboardTab').classList.remove('active');$('myFoodsTab').classList.remove('active');$('historyTab').classList.remove('active');$('aboutTab').classList.add('active');window.scrollTo({top:0,behavior:'smooth'});}
 function setupFuelLogEnhancements(){
-  const baseRender=render;render=function(){baseRender();updateCalendarLabel();renderCalendar();renderRecentFoods();renderSavedItems();renderStreak();if(!$('historyView').classList.contains('hidden'))renderWeeklyHistory();};
+  const baseRender=render;render=function(){baseRender();fillFoodOptions();updateCalendarLabel();renderCalendar();renderRecentFoods();renderSavedItems();renderMyFoods();renderStreak();if(!$('historyView').classList.contains('hidden'))renderWeeklyHistory();};
   $('calendarToggle').addEventListener('click',()=>{const pop=$('calendarPopover'),open=pop.classList.contains('hidden');if(open){calendarMonth=dateFromISO($('selectedDate').value||localDate());renderCalendar();pop.classList.remove('hidden');$('calendarToggle').setAttribute('aria-expanded','true');}else{pop.classList.add('hidden');$('calendarToggle').setAttribute('aria-expanded','false');}});
   document.addEventListener('click',e=>{if(!e.target.closest('.calendar-wrap')){$('calendarPopover').classList.add('hidden');$('calendarToggle').setAttribute('aria-expanded','false');}});
-  $('dashboardTab').addEventListener('click',showDashboard);$('historyTab').addEventListener('click',showHistory);$('historyBackBtn').addEventListener('click',showDashboard);
+  $('dashboardTab').addEventListener('click',showDashboard);$('myFoodsTab').addEventListener('click',showMyFoods);$('historyTab').addEventListener('click',showHistory);$('aboutTab').addEventListener('click',showAbout);$('myFoodForm').addEventListener('submit',saveMyFoodForm);$('cancelMyFoodEditBtn').addEventListener('click',clearMyFoodForm);$('myFoodsSearch').addEventListener('input',renderMyFoods);
+  $('foodName').addEventListener('input',()=>{const key=$('foodName').value.trim().toLowerCase();const match=(state.savedFoods||[]).some(f=>String(f.name||'').trim().toLowerCase()===key)||foods.some(f=>f.name.toLowerCase()===key);if(match)applyFoodTemplateByName(false);else lastAppliedFoodName='';});$('foodName').addEventListener('change',()=>applyFoodTemplateByName(true));$('foodName').addEventListener('blur',()=>applyFoodTemplateByName(false));$('aboutLogoLink').addEventListener('click',e=>{e.preventDefault();showAbout();});$('aboutStartBtn').addEventListener('click',showDashboard);$('aboutHistoryBtn').addEventListener('click',showHistory);$('historyBackBtn').addEventListener('click',showDashboard);
   $('weekPrevBtn').addEventListener('click',()=>{historyWeekOffset--;renderWeeklyHistory();});
+  $('exportWeeklyPdfBtn').addEventListener('click',exportWeeklyPDF);
   $('weekNextBtn').addEventListener('click',()=>{if(shiftDate(getWeekStart($('selectedDate').value||localDate()),(historyWeekOffset+1)*7)<=getWeekStart(localDate())){historyWeekOffset++;renderWeeklyHistory();}else{toast('Future weeks are not shown yet.');}});
   $('selectedDate').addEventListener('change',()=>{calendarMonth=dateFromISO($('selectedDate').value||localDate());updateCalendarLabel();renderCalendar();if(!$('historyView').classList.contains('hidden')){historyWeekOffset=0;renderWeeklyHistory();}render();});
   $('savedItemsBtn').addEventListener('click',openSavedItems);$('closeSavedItems').addEventListener('click',closeSavedItems);$('savedItemsModal').addEventListener('click',e=>{if(e.target===$('savedItemsModal'))closeSavedItems();});
